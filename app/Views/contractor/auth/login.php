@@ -32,29 +32,34 @@
             <div class="row justify-content-center">
               <div class="col-auto">
                 <div class="d-flex align-items-center gap-3">
-                  <a href="" class="w-form-btn">Freelancer</a>
-                  <a href="" class="w-form-btn-outline">Buyer</a>
+                  <a href="" class="w-form-btn">Customer</a>
+                  
                 </div>
               </div>
             </div>
           </div>
+          <?php if (session()->has('login_error')): ?>
+            <div class="alert alert-danger">
+                <?= session('login_error') ?>
+            </div>
+          <?php endif; ?>
           <div class="bg-white rounded-3 p-3">
             <div class="row g-4">
               <div class="col-lg-6 p-3 p-lg-5">
                 <div class="mb-40">
                   <h2 class="section-title mb-2">Log in</h2>
-                  <p class="section-desc">Welcome to Work Zone</p>
+                  <p class="section-desc">Welcome to Build My Home</p>
                 </div>
-                <form>
+                <form method="post" action="<?=base_url("contractor_login")?>">
                   <div class="form-container d-flex flex-column gap-4">
                     <div class="form-input">
                       <label for="eamil" class="form-label">Email <span class="text-lime-300">*</span>
                       </label>
-                      <input type="text" id="email" placeholder="example@gmail.com" class="form-control shadow-none">
+                      <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-control shadow-none">
                     </div>
                     <div class="form-input">
                       <label for="password" class="form-label">Password <span class="text-lime-300">*</span></label>
-                      <input type="text" id="password" placeholder="********" class="form-control shadow-none">
+                      <input type="password" id="password" name="password" placeholder="********" class="form-control shadow-none">
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="d-flex align-items-center gap-2 form-input">
@@ -66,7 +71,7 @@
                       </div>
                     </div>
                     <div class="d-grid">
-                      <button class="w-btn-secondary-lg">Log In</button>
+                      <button type="submit" class="w-btn-secondary-lg">Log In</button>
                     </div>
                   </div>
                 </form>
@@ -95,7 +100,7 @@
                 <div class="mt-4">
                   <p class="text-center form-text">
                     Don’t have an account ?
-                    <a href="signup.html"> Create Account </a>
+                    <a href="<?=base_url("contractor_register")?>"> Create Account </a>
                   </p>
                 </div>
               </div>

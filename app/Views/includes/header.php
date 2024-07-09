@@ -17,7 +17,8 @@
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font-awesome CSS -->
-    <link href="assets/css/font-awesome-all.min.css" rel="stylesheet" />
+    <!-- <link href="assets/css/font-awesome-all.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Swiper CSS -->
     <link href="assets/css/swiper-bundle.min.css" rel="stylesheet" />
     <!-- Main CSS -->
@@ -136,19 +137,34 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?=base_url("contact")?>">Contact</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" aria-expanded="false">Login</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="<?=base_url("customer_login")?>" class="dropdown-item"><span>Customer</span></a>
+                                </li>
+                                <li>
+                                    <a href="<?=base_url("contractor_login")?>" class="dropdown-item"><span>Contractor</span></a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" aria-expanded="false">Register</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="<?=base_url("customer_register")?>" class="dropdown-item"><span>Customer</span></a>
+                                </li>
+                                <li>
+                                    <a href="<?=base_url("contractor_register")?>" class="dropdown-item"><span>Contractor</span></a>
+                                </li>
+                            </ul>
+                        </li> 
                     </ul>
-                    <div class="d-flex align-items-center gap-4 mt-4">
-                        <div class="d-flex d-lg-none">
-                            <a href="signin.html" class="header-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17"
-                                    fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M6.5 7.55556C8.55134 7.55556 10.2143 5.86419 10.2143 3.77778C10.2143 1.69137 8.55134 0 6.5 0C4.44866 0 2.78571 1.69137 2.78571 3.77778C2.78571 5.86419 4.44866 7.55556 6.5 7.55556ZM6.5 17C10.0899 17 13 15.3086 13 13.2222C13 11.1358 10.0899 9.44444 6.5 9.44444C2.91015 9.44444 0 11.1358 0 13.2222C0 15.3086 2.91015 17 6.5 17Z"
-                                        fill="white" /></svg>Login</a>
-                        </div>
-                    </div>
+                    
                 </div>
-                <div class="navbar-right d-flex align-items-center gap-4">
+                <!-- <div class="navbar-right d-flex align-items-center gap-4">
                     <div class="header-dropdown d-none d-sm-flex gap-2 align-items-center">
                         <div class="d-flex align-items-center">
                             <svg class="text-lime-300 flex-shrink-0 mt-n2" width="8" height="15" viewBox="0 0 8 15"
@@ -192,7 +208,7 @@
                         aria-label="Toggle navigation">
                         <span></span>
                     </button>
-                </div>
+                </div> -->
             </nav>
         </div>
     </header>

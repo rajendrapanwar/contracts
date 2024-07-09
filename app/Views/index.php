@@ -12,9 +12,9 @@
                         <div>
                             <h1 class="hero-one-title fw-bold" data-aos="fade-up" data-aos-duration="1000"
                                 data-aos-easing="linear">
-                                Find Your Perfect
-                                <span class="highlighted-text"> Freelancer </span>
-                                Quick and Easy
+                                Perfect MarketPlace To
+                                <span class="highlighted-text"> Hire </span>
+                                Or <span class="highlighted-text">Get Hired</span>
                             </h1>
                             <div class="pt-5">
                                 <form>
