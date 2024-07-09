@@ -32,7 +32,7 @@
             <div class="row justify-content-center">
               <div class="col-auto">
                 <div class="d-flex align-items-center gap-3">
-                  <a href="" class="w-form-btn">Customer</a>
+                  <a href="" class="w-form-btn">Contractor</a>
                   
                 </div>
               </div>

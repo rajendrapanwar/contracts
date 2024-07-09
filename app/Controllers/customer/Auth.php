@@ -90,9 +90,9 @@ class Auth extends BaseController
                 'country' => $this->request->getPost('country'),
                 'phone' => $this->request->getPost('phone'),
                 'email' => $this->request->getPost('email'),
-                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-                
+                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
             ];
+            
 
             // Example: save data to database using Model
             $userModel = new UserModel();
