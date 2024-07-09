@@ -1,255 +1,343 @@
-'user strict';
-
-// Preloader
-$(window).on('load', function () {
-    $('.preloader').fadeOut(1000);
-});
-
-
-//Menu Dropdown
-$("ul>li>.sub-menu").parent("li").addClass("has-sub-menu");
-
-$('.menu li a').on('click', function () {
-  var element = $(this).parent('li');
-  if (element.hasClass('open')) {
-    element.removeClass('open');
-    element.find('li').removeClass('open');
-    element.find('ul').slideUp(300, "swing");
-  } else {
-    element.addClass('open');
-    element.children('ul').slideDown(300, "swing");
-    element.siblings('li').children('ul').slideUp(300, "swing");
-    element.siblings('li').removeClass('open');
-    element.siblings('li').find('li').removeClass('open');
-    element.siblings('li').find('ul').slideUp(300, "swing");
-  }
-});
-
-// Responsive Menu
-var headerTrigger = $('.header-trigger');
-headerTrigger.on('click', function(){
-    $('.menu').toggleClass('active')
-    $('.overlay').toggleClass('active')
-});
-
-var headerTrigger2 = $('.top-bar-trigger');
-headerTrigger2.on('click', function(){
-    $('.header-top').toggleClass('active')
-    $('.overlay').addClass('active')
-    $('.overlay').removeClass('active')
-});
-
-// Overlay Event
-var over = $('.overlay');
-over.on('click', function() {
-  $('.overlay').removeClass('overlay-color')
-  $('.overlay').removeClass('active')
-  $('.menu, .header-trigger').removeClass('active')
-  $('.header-top').removeClass('active')
-})
-
-
-// Sticky Menu
-window.addEventListener('scroll', function(){
-  var header = document.querySelector('.header');
-  header.classList.toggle('sticky', window.scrollY > 0);
-});
-
-
-// Scroll To Top 
-var scrollTop = $(".scrollToTop");
-$(window).on('scroll', function () {
-  if ($(this).scrollTop() < 500) {
-    scrollTop.removeClass("active");
-  } else {
-    scrollTop.addClass("active");
-  }
-});
-
-//Click event to scroll to top
-$('.scrollToTop').on('click', function () {
-  $('html, body').animate({
-    scrollTop: 0
-  }, 300);
-  return false;
-});
-
-$('.feature__slider').slick({
-  fade: false,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  infinite: true,
-  autoplay: true,
-  pauseOnHover: true,
-  centerMode: false,
-  dots: false,
-  arrows: true,
-  nextArrow: '<i class="las la-arrow-right arrow-right"></i>',
-  prevArrow: '<i class="las la-arrow-left arrow-left"></i> ',
-  responsive: [
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 3,
-      }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-    {
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-      }
-    },
-
-  ]
-});
-
-$('.testimonial-slider').slick({
-  fade: false,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  infinite: true,
-  autoplay: true,
-  pauseOnHover: true,
-  centerMode: false,
-  dots: true,
-  arrows: false,
-  nextArrow: '<i class="las la-arrow-right arrow-right"></i>',
-  prevArrow: '<i class="las la-arrow-left arrow-left"></i> ',
-  responsive: [
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 3,
-      }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 1,
-      }
-    },
-    {
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-      }
-    },
-
-  ]
-});
-
-$('.top-investor-slider').slick({
-  fade: false,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  infinite: true,
-  autoplay: true,
-  pauseOnHover: true,
-  centerMode: false,
-  dots: false,
-  arrows: false,
-  responsive: [
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 3,
-      }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 4,
-      }
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 3,
-      }
-    },
-    {
-      breakpoint: 400,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-
-  ]
-});
-
-// Odometer Counter
-$(".counter__item, .dashboard__card__item").each(function () {
-  $(this).isInViewport(function (status) {
-    if (status === "entered") {
-      for (var i = 0; i < document.querySelectorAll(".odometer").length; i++) {
-        var el = document.querySelectorAll('.odometer')[i];
-        el.innerHTML = el.getAttribute("data-odometer-final");
+(function ($) {
+    ("use strict");
+  
+    // Sticky Menu
+    function hasStickyMenu() {
+      var header = document.querySelector(".header-primary");
+  
+      if (header) {
+        //Sticky Menu
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        });
       }
     }
-  });
-});
-
-//Faq
-$('.faq-item__title').on('click', function (e) {
-  var element = $(this).parent('.faq-item');
-  if (element.hasClass('open')) {
-    element.removeClass('open');
-    element.find('.faq-item__content').removeClass('open');
-    element.find('.faq-item__content').slideUp(300, "swing");
-  } else {
-    element.addClass('open');
-    element.children('.faq-item__content').slideDown(300, "swing");
-    element.siblings('.faq-item').children('.faq-item__content').slideUp(300, "swing");
-    element.siblings('.faq-item').removeClass('open');
-    element.siblings('.faq-item').find('.faq-item__content').slideUp(300, "swing");
-  }
-});
-
-
-$('.user-thumb').on('click', function() {
-  $('.dashboard__sidebar').addClass('active')
-  $('.overlay').addClass('active')
-})
-
-$('.single-select').on('click', function() {
-  $('.single-select').removeClass('active')
-  $(this).addClass('active')
-})
-
-$('.btn-close, .overlay').on('click', function() {
-  $('.overlay').removeClass('active')
-  $('.menu').removeClass('active')
-})
-
-$('.how-item').on('mouseover', function() {
-  $('.how-item').removeClass('active')
-  $(this).addClass('active')
-})
-
-// Dashboard Collapse Expand
-$('.user-toggler').on('click', function () {
-  $('.dashboard-sidebar').toggleClass('active')
-  $('.overlay').toggleClass('overlay-color')
-});
-$('.close-dashboard, .overlay').on('click', function () {
-  $('.dashboard-sidebar').removeClass('active')
-  $('.overlay').removeClass('overlay-color')
-});
+    hasStickyMenu();
+  
+    function QuillExist() {
+      const editorOne = document.querySelector("#editor");
+      const editorTwo = document.querySelector("#editor-seo");
+  
+      // Editor
+      var toolbarOptions = [
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["bold", "italic", "underline", "link"], // toggled buttons
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ align: [] }],
+      ];
+  
+      if (editorOne) {
+        let quillEditorOne = new Quill("#editor", {
+          modules: {
+            toolbar: toolbarOptions,
+          },
+          theme: "snow",
+        });
+      } else if (editorTwo) {
+        let quillEditorTwo = new Quill("#editor-seo", {
+          modules: {
+            toolbar: toolbarOptions,
+          },
+          theme: "snow",
+        });
+      } else {
+        return false;
+      }
+    }
+  
+    QuillExist();
+  
+    // Nice Select
+    $(".select-dropdown").niceSelect();
+  
+    var featureCategory = new Swiper(".featureCategory", {
+      loop: true,
+      slidesPerView: 1,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".featureNext",
+        prevEl: ".featurePrev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 24,
+        },
+        1400: {
+          slidesPerView: 6,
+          spaceBetween: 24,
+        },
+      },
+    });
+  
+    var serviceSlider = new Swiper(".serviceSlider", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".serviceNext",
+        prevEl: ".servicePrev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+  
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+        1400: {
+          slidesPerView: 5,
+          spaceBetween: 24,
+        },
+      },
+    });
+  
+    var recentJob = new Swiper(".recentJob", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".recentJobNext",
+        prevEl: ".recentJobPrev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 24,
+        },
+        1400: {
+          slidesPerView: 5,
+          spaceBetween: 24,
+        },
+      },
+    });
+  
+    // Testimonial Slider Top
+    let testimonialsSlider = new Swiper(".testimonialsSlider", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      freeMode: true,
+      speed: 10000,
+      autoplay: {
+        delay: 1,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      slidesPerView: 1,
+      allowTouchMove: false,
+      breakpoints: {
+        1: {
+          slidesPerView: 1.1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 2.5,
+        },
+        1200: {
+          slidesPerView: 3,
+        },
+        1400: {
+          slidesPerView: 3.5,
+        },
+        1600: {
+          slidesPerView: 4,
+        },
+        1900: {
+          slidesPerView: 4.5,
+        },
+      },
+    });
+    // Testimonial Slider Bottom
+    let testimonialsSliderBottom = new Swiper(".testimonialsSliderBottom", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      freeMode: true,
+      speed: 8000,
+      autoplay: {
+        delay: 1,
+        reverseDirection: true,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      slidesPerView: 1,
+      allowTouchMove: false,
+  
+      breakpoints: {
+        1: {
+          slidesPerView: 1.1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 2.5,
+        },
+        1200: {
+          slidesPerView: 3,
+        },
+        1400: {
+          slidesPerView: 3.5,
+        },
+        1600: {
+          slidesPerView: 4,
+        },
+        1900: {
+          slidesPerView: 4.5,
+        },
+      },
+    });
+  
+    // Services Details
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      loop: true,
+      spaceBetween: 25,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+  
+    // AOS
+    AOS.init({
+      offset: 250,
+    });
+  
+    //Counter up
+    $(".counter").counterUp({
+      delay: 10,
+      time: 1000,
+    });
+  
+    // Lightbox Gallery
+    var lightboxGallery = GLightbox({
+      selector: ".gallery",
+      touchNavigation: true,
+      loop: true,
+    });
+  
+    var lightbox = GLightbox({
+      selector: ".video-popup",
+      touchNavigation: true,
+      loop: false,
+    });
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      var grid = document.querySelector(".grid");
+  
+      if (grid) {
+        imagesLoaded(grid, function () {
+          var iso = new Isotope(grid, {
+            itemSelector: ".grid-item",
+            layoutMode: "fitRows",
+            filter: "*",
+          });
+  
+          var filters = document.querySelector(".filters-btns");
+          filters.addEventListener("click", function (event) {
+            if (!event.target.matches("button")) return;
+            var filterValue = event.target.getAttribute("data-filter");
+            iso.arrange({ filter: filterValue });
+          });
+  
+          var filterButtons = document.querySelector(".filters-btns");
+          var buttons = filterButtons.querySelectorAll("button");
+  
+          buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+              // Remove active class from all buttons
+              buttons.forEach(function (btn) {
+                btn.classList.remove("active");
+              });
+  
+              // Add active class to clicked button
+              this.classList.add("active");
+  
+              var filterValue = this.getAttribute("data-filter");
+              iso.arrange({ filter: filterValue });
+            });
+          });
+        });
+      }
+    });
+  
+    //Dashboard Sidebar
+    function dashboardSidebar() {
+      const links = document.querySelectorAll(".sidebar-nav li a");
+  
+      if (links) {
+      }
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          links.forEach((link) => link.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    }
+    dashboardSidebar();
+  
+    // Payment
+    function paymentSelection() {
+      const paymentOptions = document.querySelectorAll(".single-payment-option");
+  
+      paymentOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          // Remove the 'selected' class from all options
+          paymentOptions.forEach((opt) => opt.classList.remove("selected"));
+  
+          // Add the 'selected' class to the clicked option
+          this.classList.add("selected");
+        });
+      });
+    }
+    paymentSelection();
+  })(jQuery, window);
