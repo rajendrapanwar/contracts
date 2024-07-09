@@ -10,4 +10,18 @@ class Home extends BaseController
                view('index').
                view('includes/footer');
     }
+
+    public function about()
+    {
+        return view('includes/header').
+               view('about').
+               view('includes/footer');
+    }
+    
+    public function contact()
+    {
+        return view('includes/header').
+               view('contact').
+               view('includes/footer');
+    }
 }

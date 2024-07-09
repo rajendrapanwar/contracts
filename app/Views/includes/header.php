@@ -31,7 +31,7 @@
     <header class="header-primary">
         <div class="container">
             <nav class="navbar navbar-expand-xl justify-content-between">
-                <a href="index.html">
+                <a href="<?=base_url("/")?>">
                     <img src="assets/img/logo/logo-light.svg" alt="" />
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,23 +42,10 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" aria-expanded="false">Home</a>
-                            <div class="dropdown-menu">
-                                <div class="d-flex flex-column flex-xl-row">
-                                    <ul>
-                                        <li>
-                                            <a href="index.html" class="dropdown-item"><span>Home Main</span></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="index-2.html" class="dropdown-item"><span>Home Two</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <a class="nav-link " href="<?=base_url("/")?>" role="button" >Home</a>
+                            
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Freelancer</a>
                             <div class="dropdown-menu">
@@ -76,11 +63,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
+                            <a class="nav-link" href="<?=base_url("about")?>">About Us</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
@@ -145,9 +132,9 @@
                                     <a href="blog-details.html" class="dropdown-item"><span>Blog Details</span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="<?=base_url("contact")?>">Contact</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center gap-4 mt-4">
