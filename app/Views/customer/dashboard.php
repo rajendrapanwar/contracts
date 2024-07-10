@@ -257,7 +257,7 @@
           </div>
           <div>
             <div class="dashboard-header-btns d-flex gap-3">
-              <div class="d-none d-md-block">
+              <!-- <div class="d-none d-md-block">
                 <button class="dashboard-header-btn">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.5 16.7076L21.4217 18.6292C22.1928 19.4004 22.1928 20.6506 21.4217 21.4217C20.6506 22.1928 19.4004 22.1928 18.6293 21.4217L16.7076 19.5M2 10.5C2 5.80558 5.80558 2 10.5 2C15.1944 2 19 5.80558 19 10.5C19 15.1944 15.1944 19 10.5 19C5.80558 19 2 15.1944 2 10.5Z" stroke="#06131C" stroke-width="1.5" stroke-linecap="round"></path>
@@ -270,7 +270,7 @@
                     <path d="M12.8416 2.89143L12 3.80469L11.1584 2.89143C8.83456 0.369524 5.0668 0.369522 2.74291 2.89143C0.419029 5.41334 0.419028 9.50216 2.74291 12.0241L10.3169 20.2434C11.2464 21.2522 12.7536 21.2522 13.6831 20.2434L21.2571 12.0241C23.581 9.50215 23.581 5.41334 21.2571 2.89143C18.9332 0.369524 15.1654 0.369523 12.8416 2.89143Z" stroke="#06131C" stroke-width="1.5" stroke-linejoin="round"></path>
                   </svg>
                 </button>
-              </div>
+              </div> -->
               <div class="d-none d-md-block">
                 <button class="dashboard-header-btn">
                   <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
