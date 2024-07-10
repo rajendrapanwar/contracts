@@ -589,7 +589,7 @@
             <div class="container">
                 <div class="row mb-40 justify-content-between align-items-end">
                     <div class="col-md-auto">
-                        <h2 class="fw-bold section-title">Recent Job Post</h2>
+                        <h2 class="fw-bold section-title">Latest Projects</h2>
                         <p class="section-desc">Get some Inspirations from 86K+ skills</p>
                     </div>
                     <div class="col-md-auto position-relative mt-30 mt-md-0">
@@ -780,7 +780,7 @@
             <div class="container">
                 <div class="row justify-content-between align-items-end mb-40">
                     <div class="col-auto">
-                        <h2 class="fw-bold section-title">Top Sellers</h2>
+                        <h2 class="fw-bold section-title">Top Contractors</h2>
                         <p class="section-desc">Get some Inspirations from 86K+ skills</p>
                     </div>
                     <div class="col-auto mt-30 mt-md-0">

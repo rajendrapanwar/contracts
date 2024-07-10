@@ -699,7 +699,7 @@ body {
 /*----- For Desktop -------*/
 @media screen and (min-width: 1199.5px) {
   .header-primary {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -2673,7 +2673,7 @@ Dashboard CSS Start
 .dashboard-main {
   background-color: var(--off-white);
   padding: 30px;
-  margin-left: 300px;
+  /* margin-left: 300px; */
 }
 .dashboard-widget-title {
   font-size: 40px;

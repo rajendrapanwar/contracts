@@ -179,7 +179,7 @@
     <!-- Menu End -->
 
     <!-- Secondary Nav -->
-    <div class="d-none d-xl-block secondary-nav-wrapper">
+    <!-- <div class="d-none d-xl-block secondary-nav-wrapper">
         <div class="container">
             <div class="position-relative">
                 <nav class="secondary-nav-container bg-white position-absolute w-100 start-0 z-3 border-top">
@@ -216,5 +216,5 @@
                 </nav>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Secondary Nav End -->

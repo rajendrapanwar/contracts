@@ -9,15 +9,15 @@
           <div class="row">
             <div class="col-auto">
               <div class="position-relative z-2 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="linear">
-                <h2 class="section-title-light mb-2">Sign In</h2>
-                <nav aria-label="breadcrumb">
+                <h2 class="section-title-light mb-2">Customer Login</h2>
+                <!-- <nav aria-label="breadcrumb">
                   <ol class="breadcrumb w-breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">
                       Login
                     </li>
                   </ol>
-                </nav>
+                </nav> -->
               </div>
             </div>
           </div>
@@ -26,18 +26,9 @@
       <!-- Breadcrumb End -->
 
       <!-- Login Form -->
-      <section class="py-110 bg-offWhite">
+      <section class="py-5 bg-offWhite">
         <div class="container">
-          <div class="mb-5">
-            <div class="row justify-content-center">
-              <div class="col-auto">
-                <div class="d-flex align-items-center gap-3">
-                  <a href="" class="w-form-btn">Customer</a>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <?php if (session()->has('login_error')): ?>
             <div class="alert alert-danger">
                 <?= session('login_error') ?>
