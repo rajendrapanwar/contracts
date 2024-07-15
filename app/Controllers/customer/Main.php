@@ -14,7 +14,7 @@ class Main extends BaseController
 
     private function checkSession()
     {
-        if (!$this->session->has('isLoggedIn') && $this->session('role')!='customer' ) {
+        if (!$this->session->has('isLoggedIn') && $this->session->get('role') != 'customer') {
             // Redirect to login page if session does not exist
             return false;
         }
