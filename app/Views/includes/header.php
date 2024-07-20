@@ -57,6 +57,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="<?=base_url("customer-dashboard")?>" role="button" >Test</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="<?=base_url("customer-dashboard")?>" role="button" >Rajendra Panwar</a>
+                        </li>
                         
                     </ul>
                     
