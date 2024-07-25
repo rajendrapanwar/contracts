@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 09:39 AM
+-- Generation Time: Jul 25, 2024 at 05:40 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
+  `project_title` varchar(255) NOT NULL,
+  `area_length` varchar(255) NOT NULL,
+  `area_breadth` varchar(255) NOT NULL,
+  `floors` varchar(255) NOT NULL,
+  `material` varchar(255) NOT NULL,
+  `estimated_budget` varchar(255) NOT NULL,
+  `customer_budget` varchar(255) NOT NULL,
+  `time_duration` varchar(255) NOT NULL,
+  `location` text NOT NULL,
+  `notes` text NOT NULL,
+  `images` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -37,19 +59,26 @@ CREATE TABLE `users` (
   `address` text NOT NULL,
   `city` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL
+  `role` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `address`, `city`, `country`, `role`) VALUES
-(1, 'Rajendra', 'Panwar', 'rajendrapanwar8170@gmail.com', '$2y$10$q/ACn9d3RtC6TY6ZkhzDxu8nvViI8j99ZHRuE3t3xchMR0uQundO.', '9389882749', 'Vijay Colony', '2', '2', '');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `address`, `city`, `country`, `role`, `created_at`) VALUES
+(1, 'Rajendra', 'Panwar', 'rajendrapanwar8170@gmail.com', '$2y$10$q/ACn9d3RtC6TY6ZkhzDxu8nvViI8j99ZHRuE3t3xchMR0uQundO.', '9389882749', 'Vijay Colony', '2', '2', 'customer', '2024-07-10 13:29:31');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -60,6 +89,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
