@@ -341,3 +341,85 @@
     }
     paymentSelection();
   })(jQuery, window);
+
+  // Custom
+ function showSuccessMessage(title,message){
+    new Notify ({
+      status: 'success',
+      title: title,
+      text: message,
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      notificationsGap: null,
+      notificationsPadding: null,
+      type: 'outline',
+      position: 'right bottom',
+      customWrapper: '',
+    })
+  }
+ function showWarningMessage(title,message){
+    new Notify ({
+      status: 'warning',
+      title: title,
+      text: message,
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      notificationsGap: null,
+      notificationsPadding: null,
+      type: 'outline',
+      position: 'right bottom',
+      customWrapper: '',
+    })
+  }
+ function showErrorMessage(title,message){
+    new Notify ({
+      status: 'error',
+      title: title,
+      text: message,
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      notificationsGap: null,
+      notificationsPadding: null,
+      type: 'outline',
+      position: 'right bottom',
+      customWrapper: '',
+    })
+  }
+ function showInfoMessage(title,message){
+    new Notify ({
+      status: 'info',
+      title: title,
+      text: message,
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      notificationsGap: null,
+      notificationsPadding: null,
+      type: 'outline',
+      position: 'right bottom',
+      customWrapper: '',
+    })
+  }

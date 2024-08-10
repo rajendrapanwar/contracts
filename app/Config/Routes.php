@@ -11,6 +11,8 @@ $routes->get('contact', 'Home::contact');
 $routes->get('logout', 'Auth::logout');
 $routes->get('forgot-password', 'Auth::forgotPassword');
 $routes->post('forgot-password-post', 'Auth::forgotPasswordPost');
+$routes->post('subscribe', 'Home::subscribe');
+$routes->get('search-projects', 'Home::searchProjects');
 
 //Customer Routes
 $routes->get('customer_login', 'customer\Auth::login');
