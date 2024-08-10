@@ -24,7 +24,9 @@ $routes->post('customer_register', 'customer\Auth::register_post');
 $routes->get('customer-dashboard', 'customer\Main::dashboard');
 $routes->get('customer-profile', 'customer\Main::profile');
 $routes->get('customer-chat', 'customer\Main::chat');
+$routes->get('customer-project', 'customer\Projects::customer_project');
 $routes->get('add-project', 'customer\Projects::add_project');
+$routes->post('add-project', 'customer\Projects::add_project_post');
 
 //Contractor Routes
 $routes->get('contractor_login', 'contractor\Auth::login');
