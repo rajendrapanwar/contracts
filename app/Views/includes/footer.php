@@ -755,6 +755,9 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
     <!-- Main -->
     <script src="assets/js/main.js"></script>
+    <?php if (session('isLoggedIn') && session('role')=='customer') {?>
+        <script src="assets/js/customer.js"></script>
+    <?php } ?>
 </body>
 
 </html>

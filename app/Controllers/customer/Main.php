@@ -4,12 +4,16 @@ namespace App\Controllers\customer;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\CountryModel;
 
 class Main extends BaseController
 {
     public function __construct()
     {
         $this->session = \Config\Services::session();
+        $this->userModel=new UserModel();
+        $this->countryModel=new CountryModel();
+        
     }
 
     private function checkSession()
@@ -36,8 +40,17 @@ class Main extends BaseController
         if (!$this->checkSession()) {
             return redirect()->to('/customer_login')->send();
         }
+
+     
+        $id=session('user_id');
+        $data['user']=$this->userModel->getUserDetailsById($id);
+        $data['countries']=$this->countryModel->getAllCountries();
+        // echo "<pre>";
+        // print_r($_SESSION);
+
+        // die;
         return view('includes/header').
-               view('customer/profile/index').
+               view('customer/profile/index',$data).
                view('includes/footer');  
     }
 

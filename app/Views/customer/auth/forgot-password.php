@@ -38,31 +38,19 @@
             <div class="row g-4">
               <div class="col-lg-6 p-3 p-lg-5">
                 <div class="mb-40">
-                  <h2 class="section-title mb-2">Log in</h2>
-                  <p class="section-desc">Welcome to Build My Home</p>
+                  <h2 class="section-title mb-2">Forgot Password</h2>
+                  <p class="section-desc">Enter your email below, and we'll send you a link to reset it. Check your inbox for instructions and regain access to your account.</p>
                 </div>
-                <form method="post" action="<?=base_url("customer_login")?>">
+                <form method="post" action="<?=base_url("forgot-password-post")?>">
                   <div class="form-container d-flex flex-column gap-4">
                     <div class="form-input">
                       <label for="eamil" class="form-label">Email <span class="text-lime-300">*</span>
                       </label>
                       <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-control shadow-none">
                     </div>
-                    <div class="form-input">
-                      <label for="password" class="form-label">Password <span class="text-lime-300">*</span></label>
-                      <input type="password" id="password" name="password" placeholder="********" class="form-control shadow-none">
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                      <div class="d-flex align-items-center gap-2 form-input">
-                        <input type="checkbox" class="form-check">
-                        <label class="form-check-label">Remember Me</label>
-                      </div>
-                      <div>
-                        <a href="<?= base_url('forgot-password') ?>" class="form-forget-pass">Forget Password</a>
-                      </div>
-                    </div>
+                    
                     <div class="d-grid">
-                      <button type="submit" class="w-btn-secondary-lg">Log In</button>
+                      <button type="submit" class="w-btn-secondary-lg">Reset</button>
                     </div>
                   </div>
                 </form>
@@ -92,6 +80,12 @@
                   <p class="text-center form-text">
                     Don’t have an account ?
                     <a href="<?=base_url("customer_register")?>"> Create Account </a>
+                  </p>
+                </div>
+                <div class="mt-4">
+                  <p class="text-center form-text">
+                    Already have an account ?
+                    <a href="<?=base_url("customer_login")?>">Login</a>
                   </p>
                 </div>
               </div>

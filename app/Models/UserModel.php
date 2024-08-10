@@ -19,4 +19,19 @@ class UserModel extends Model
         'email',
         'password',
     ];
+
+    // get user data
+    public function getUserDetailsById($id)
+    {
+        return $this->where('id', $id)->get()->getRowArray();
+    }
+    public function getUserByEmail($email)
+    {
+        return $this->where('email', $email)->get()->getRowArray();
+    }
+    // update profile
+    public function updateProfile($id, $data)
+    {
+        return $this->where('id', $id)->set($data)->update();
+    }
 }

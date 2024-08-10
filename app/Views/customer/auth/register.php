@@ -77,9 +77,11 @@
                       <div class="form-input col-lg-6">
                         <label for="country" class="form-label">Country <span class="text-lime-300">*</span></label>
                         <select class="form-select shadow-none" name="country" id="country">
-                          <option value="1">Select Country</option>
-                          <option value="2">Germany</option>
-                          <option value="3">China</option>
+                          <?php if(isset($countries) && !empty($countries)): ?>
+                                  <?php foreach($countries as $country): ?>
+                                    <option value="<?= $country['alpha3Code'] ?>"><?= $country['name'] ?></option>
+                                  <?php endforeach; ?>
+                                <?php endif; ?>
                         </select>
                       </div>
                       <div class="form-input col-lg-6">

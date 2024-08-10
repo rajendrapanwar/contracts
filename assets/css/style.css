@@ -752,7 +752,7 @@ body {
     background-color: var(--white);
     display: block;
     right: 0;
-    left: 0;
+    left: -180px;
     padding: 10px;
     border: none;
     top: 110%;
@@ -2779,6 +2779,9 @@ Dashboard CSS Start
   height: 56px;
   border-radius: 50%;
   align-self: center;
+}
+.dropdown .menu-btn {
+  border: 1px solid var(--lime-300);;
 }
 
 .header-btn-badge {

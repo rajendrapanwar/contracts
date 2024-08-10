@@ -8,11 +8,16 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
+$routes->get('logout', 'Auth::logout');
+$routes->get('forgot-password', 'Auth::forgotPassword');
+$routes->post('forgot-password-post', 'Auth::forgotPasswordPost');
 
 //Customer Routes
 $routes->get('customer_login', 'customer\Auth::login');
 $routes->get('customer_register', 'customer\Auth::register');
 $routes->post('customer_login', 'customer\Auth::login_post');
+$routes->post('update-profile', 'customer\Auth::updateProfile');
+$routes->post('update-password', 'customer\Auth::changePassword');
 $routes->post('customer_register', 'customer\Auth::register_post');
 $routes->get('customer-dashboard', 'customer\Main::dashboard');
 $routes->get('customer-profile', 'customer\Main::profile');
