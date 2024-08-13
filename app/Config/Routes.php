@@ -27,6 +27,8 @@ $routes->get('customer-chat', 'customer\Main::chat');
 $routes->get('customer-project', 'customer\Projects::customer_project');
 $routes->get('add-project', 'customer\Projects::add_project');
 $routes->post('add-project', 'customer\Projects::add_project_post');
+$routes->get('edit-project/(:num)', 'customer\Projects::edit_project/$1');
+$routes->post('edit-project/(:num)', 'customer\Projects::edit_project_post/$1');
 
 //Contractor Routes
 $routes->get('contractor_login', 'contractor\Auth::login');

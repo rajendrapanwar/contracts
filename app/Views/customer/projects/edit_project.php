@@ -3,7 +3,7 @@
   <div class="d-flex flex-column gap-4 pb-110 container">
     <!-- Page Header -->
     <div>
-      <h3 class="text-24 fw-bold text-dark-300 mb-2">Add Project</h3>
+      <h3 class="text-24 fw-bold text-dark-300 mb-2">Edit Project</h3>
 
     </div>
     <!-- Content -->
@@ -18,13 +18,13 @@
     <?php endif; ?>
     <?php if (session()->getFlashdata('message')): ?>
       <div class="alert alert-success">
-        <p><?= session()->getFlashdata('message') ?></p>
+        <p><?= session()->getFlashdata('message') ?><p>
       </div>
     <?php endif; ?>
     <div>
       <div class="row justify-content-center">
         <div class="col-xl-12">
-          <form name="add_project" method="post" action="<?=base_url("add-project")?>" enctype="multipart/form-data">
+          <form name="add_project" method="post" action="<?=base_url("edit-project/")?><?=$project['id']?>" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <div class="d-flex flex-column gap-4">
               <!-- Project Info -->
@@ -42,7 +42,7 @@
                         <label for="title" class="form-label">Project Title
                           <span class="text-lime-300">*</span></label>
                         <input type="text" name="project_title" id="title" class="form-control shadow-none"
-                          placeholder="Title name here">
+                          value="<?=$project['project_title']?>">
                       </div>
                     </div>
                     <div class="col-6">
@@ -50,7 +50,7 @@
                         <label for="author" class="form-label">Area Length
                           <span class="text-lime-300">*</span></label>
                         <input type="number" id="area_length" name="area_length" class="form-control shadow-none"
-                          placeholder="Length">
+                        value="<?=$project['area_length']?>">
                       </div>
                     </div>
                     <div class="col-6">
@@ -58,7 +58,7 @@
                         <label for="author" class="form-label">Area Breadth
                           <span class="text-lime-300">*</span></label>
                         <input type="number" id="area_breadth" name="area_breadth" class="form-control shadow-none"
-                          placeholder="Breadth">
+                        value="<?=$project['area_breadth']?>">
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -66,7 +66,7 @@
                         <label for="jobDuration" class="form-label">
                           Floors<span class="text-lime-300">*</span>
                         </label>
-                        <select id="floors" name="floors" autocomplete="off" class="form-select shadow-none">
+                        <select id="floors" name="floors" autocomplete="off" class="form-select shadow-none" value="<?=$project['floors']?>" >
                           <option>Select</option>
                           <option value="1">01</option>
                           <option value="2">02</option>
@@ -78,7 +78,8 @@
                       <div class="form-container">
                         <label for="jobType" class="form-label">Material Type</label>
                         <select id="material_type" name="material_type" autocomplete="off"
-                          class="form-select shadow-none">
+                          class="form-select shadow-none"
+                          value="<?=$project['material']?>">
                           <option>Select</option>
                           <option value="Own">Own</option>
                           <option value="Contractors">Contractors</option>
@@ -89,7 +90,7 @@
                       <div class="form-container">
                         <label for="budget" class="form-label">Estimated Budget</label>
                         <input id="estimated_budget" name="estimated_budget" type="decimal"
-                          class="form-control shadow-none" placeholder="Estimated Budget">
+                          class="form-control shadow-none" value="<?=$project['estimated_budget']?>">
                       </div>
                     </div>
                     <div class="col-6">
@@ -97,14 +98,14 @@
                         <label for="location" class="form-label">Your Budget
                           <span class="text-lime-300">*</span></label>
                         <input id="budget" name="budget" type="number" step="0.01" min="0" class="form-control shadow-none"
-                          placeholder="Your Budget">
+                        value="<?=$project['customer_budget']?>">
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="form-container">
                         <label for="budget" class="form-label">Time Duration</label>
                         <input id="duration" name="duration" type="text" class="form-control shadow-none"
-                          placeholder="Time Duration">
+                        value="<?=$project['time_duration']?>">
                       </div>
                     </div>
                     <div class="col-6">
@@ -112,7 +113,7 @@
                         <label for="location" class="form-label">Location
                           <span class="text-lime-300">*</span></label>
                         <input id="location" name="location" type="text" class="form-control shadow-none"
-                          placeholder="Location here">
+                        value="<?=$project['location']?>">
                       </div>
                     </div>
                     <div class="col-12">
@@ -149,7 +150,7 @@
                   <div class="d-flex flex-wrap gap-3">
                     <div>
                       <label for="gig-img" class="border text-center gig-file-upload">
-                        <img src="assets/img/dashboard/gigs/gallery-icon.png" alt="">
+                        <img src="<?=base_url()?>assets/img/projects/<?=$project['images']?>" alt="">
                         <p class="text-dark-200">Max.Size 10MB</p>
                         <input class="d-none" type="file" name="location_image" id="gig-img">
                       </label>
@@ -180,7 +181,7 @@
               <!-- Submit Btn -->
               <div>
                 <button type="submit" class="w-btn-secondary-lg">
-                  Add Project
+                  Edit Project
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
                     <path d="M9 9L13 5M13 5L9 1M13 5L1 5" stroke="white" stroke-width="1.5" stroke-linecap="round"
                       stroke-linejoin="round"></path>

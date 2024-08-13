@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home One - Work Zone HTML</title>
     <!-- GLightBox -->
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/glightbox.min.css" />
     <!-- Aos -->
-    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/aos.css" />
     <!-- Nice Select -->
-    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/nice-select.css" />
     <!-- Quill CSS -->
-    <link href="assets/css/quill.core.css" rel="stylesheet" />
-    <link href="assets/css/quill.snow.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/quill.core.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/quill.snow.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font-awesome CSS -->
     <!-- <link href="assets/css/font-awesome-all.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Notify -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
     <!-- Swiper CSS -->
-    <link href="assets/css/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/swiper-bundle.min.css" rel="stylesheet" />
     <!-- Main CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet" />
     <!-- Responsive CSS -->
-    <link href="assets/css/resposive.css" rel="stylesheet" />
+    <link href="<?=base_url()?>assets/css/resposive.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -35,7 +35,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl justify-content-between">
                 <a href="<?=base_url("/")?>">
-                    <img src="assets/img/logo/logo-light.svg" alt="" />
+                    <img src="<?=base_url()?>assets/img/logo/logo-light.svg" alt="" />
                 </a>
                 <?php  
                 if (session('isLoggedIn') && session('role')=='customer') {
@@ -45,14 +45,14 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="d-block d-xl-none">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo-light.svg" alt="" /></a>
+                                <a href="index.html"><img src="<?=base_url()?>assets/img/logo/logo-light.svg" alt="" /></a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="<?=base_url("customer-dashboard")?>" role="button" >Dashboard</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="<?=base_url("customer-dashboard")?>" role="button" >My Projects</a>
+                            <a class="nav-link " href="<?=base_url("customer-project")?>" role="button" >My Projects</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="<?=base_url("add-project")?>" role="button" >Add Project</a>

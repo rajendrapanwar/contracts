@@ -9,7 +9,7 @@
                     <div class="col-lg-6 col-xl-4">
                         <div>
                             <a href="index.html" class="d-block mb-4">
-                                <img src="assets/img/logo/logo-dark.svg" alt="" />
+                                <img src="<?=base_url()?>assets/img/logo/logo-dark.svg" alt="" />
                             </a>
                             <p class="text-white">
                                 It is a long established fact that a reader will be
@@ -85,10 +85,10 @@
                             <h3 class="footer-widget-title fw-bold mb-4">Download App</h3>
                             <div class="d-flex gap-3">
                                 <a href="#">
-                                    <img src="assets/img/logo/play.svg" alt="" />
+                                    <img src="<?=base_url()?>assets/img/logo/play.svg" alt="" />
                                 </a>
                                 <a href="#">
-                                    <img src="assets/img/logo/appstore.svg" alt="" />
+                                    <img src="<?=base_url()?>assets/img/logo/appstore.svg" alt="" />
                                 </a>
                             </div>
                         </div>
@@ -407,9 +407,9 @@
                 <div class="col-auto">
                     <div>
                         <p class="text-white">
-                            Copyright @2023 All rights reserved
+                            Copyright @2024 All rights reserved by
                             <a href="http://" class="text-white" target="_blank" rel="noopener noreferrer">
-                                quomodotheme
+                                Rajendra Panwar
                             </a>
                         </p>
                     </div>
@@ -702,7 +702,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div>
-                            <img src="assets/img/others/category.png" class="rounded-3 img-fluid w-100" alt="" />
+                            <img src="<?=base_url()?>assets/img/others/category.png" class="rounded-3 img-fluid w-100" alt="" />
                         </div>
                     </div>
                 </div>
@@ -715,37 +715,37 @@
 
 
 <!-- Jquery -->
-<script src="assets/js/jquery.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery.min.js"></script>
 <!-- Migrate  -->
-<script src="assets/js/jquery-migrate.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery-migrate.min.js"></script>
 <!-- CounterUp  -->
-<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery.counterup.min.js"></script>
 <!-- Waypoint -->
-<script src="assets/js/waypoints.min.js"></script>
+<script src="<?=base_url()?>assets/js/waypoints.min.js"></script>
 <!-- Nice Select -->
-<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery.nice-select.min.js"></script>
 <!-- Isotope -->
-<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="<?=base_url()?>assets/js/isotope.pkgd.min.js"></script>
 <!-- ImgLoaded -->
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="<?=base_url()?>assets/js/imagesloaded.pkgd.min.js"></script>
 <!-- AOS -->
-<script src="assets/js/aos.js"></script>
+<script src="<?=base_url()?>assets/js/aos.js"></script>
 <!-- Quill Editor -->
-<script src="assets/js/quill.js"></script>
+<script src="<?=base_url()?>assets/js/quill.js"></script>
 <!-- GLightBox -->
-<script src="assets/js/glightbox.min.js"></script>
+<script src="<?=base_url()?>assets/js/glightbox.min.js"></script>
 <!-- Popper -->
-<script src="assets/js/popper.min.js"></script>
+<script src="<?=base_url()?>assets/js/popper.min.js"></script>
 <!-- Bootstrap -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?=base_url()?>assets/js/bootstrap.bundle.min.js"></script>
 <!-- Swiper -->
-<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="<?=base_url()?>assets/js/swiper-bundle.min.js"></script>
 <!-- Notify -->
 <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
 <!-- Main -->
-<script src="assets/js/main.js"></script>
+<script src="<?=base_url()?>assets/js/main.js"></script>
 <?php if (session('isLoggedIn') && session('role') == 'customer') { ?>
-    <script src="assets/js/customer.js"></script>
+    <script src="<?=base_url()?>assets/js/customer.js"></script>
 <?php } ?>
 </body>
 <!-- Alert message -->

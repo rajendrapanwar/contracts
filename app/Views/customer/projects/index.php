@@ -15,7 +15,7 @@
                
              </div>
              <div>
-               <a href="seller-create-gig.html" class="w-btn-secondary-lg">
+               <a href="<?=base_url('add-project')?>" class="w-btn-secondary-lg">
                  Create a New Project</a>
              </div>
            </div>
@@ -29,24 +29,28 @@
                    <thead class="pb-3">
                      <tr>
                        <th scope="col" class="ps-4">Project Name</th>
-                       <th scope="col">Amount</th>
-                       <th scope="col">Expected Delivery Date</th>
-                       <th scope="col" class="text-start">Status</th>
+                       <th scope="col">Budget</th>
+                       <th scope="col">Duration Time</th>
+                       <th scope="col" class="text-start">Dimensions</th>
+                       <th scope="col" class="text-start">Action</th>
                      </tr>
                    </thead>
                    <tbody>
+                    <?php
+                    foreach($projects as $project){
+                    ?>
                      <tr>
                        <td>
                          <div class="d-flex gap-3 align-items-center project-name">
                            <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-1.png" alt="">
+                             <img src="assets/img/projects/<?=$project['images']?>" alt="">
                            </div>
                            <div>
                              <a href="service-details.html" class="project-link">
-                               Brote - Cleanin Service Elementor Template Kit
+                             <?=$project['project_title']?>
                              </a>
                              <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
+                               <li class="text-dark-200"><?=$project['location']?></li>
                                <li class="text-dark-200">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
                                    <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -57,218 +61,24 @@
                            </div>
                          </div>
                        </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">Waiting for requirements</td>
+                       <td class="text-dark-200"><?=$project['customer_budget']?></td>
+                       <td class="text-dark-200"><?=$project['time_duration']?></td>
                        <td class="text-start">
-                         <span class="status-badge pending">
-                           Pending payment
-                         </span>
+                       <?=$project['area_length']?>x<?=$project['area_breadth']?>
+                       </td>
+                       <td class="text-start">
+                        <a href="<?=base_url('edit-project/')?><?=$project['id']?>"
+                       <button class="dashboard-action-btn">
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 10V15.4C19 17.3882 17.3882 19 15.4 19H4.6C2.61177 19 1 17.3882 1 15.4V4.6C1 2.61177 2.61177 1 4.6 1H10M13.3177 2.82047C13.3177 2.82047 13.3177 4.10774 14.605 5.39501C15.8923 6.68228 17.1795 6.68228 17.1795 6.68228M7.43921 13.5906L10.1425 13.2044C10.5324 13.1487 10.8938 12.968 11.1723 12.6895L18.4668 5.39501C19.1777 4.68407 19.1777 3.53141 18.4668 2.82047L17.1795 1.5332C16.4686 0.822266 15.3159 0.822265 14.605 1.5332L7.31048 8.82772C7.03195 9.10624 6.85128 9.4676 6.79557 9.85753L6.40939 12.5608C6.32357 13.1615 6.83848 13.6764 7.43921 13.5906Z" stroke="#5B5B5B" stroke-width="1.5" stroke-linecap="round"></path>
+                              </svg>
+                            </button></a>
                        </td>
                      </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-2.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               Nas Best Digital Agency Website Design
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">January 18, 2024 02:51 PM</td>
-                       <td class="text-start">
-                         <span class="status-badge in-progress">
-                           Pending payment
-                         </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-3.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               File Manager Cloud Storage App Mobile Design
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">-</td>
-                       <td class="text-start">
-                         <span class="status-badge canceled"> Canceled </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-4.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               Hiring Platform Dashboard Designe for Filtering
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">January 25, 2024 10:23 AM</td>
-                       <td class="text-start">
-                         <span class="status-badge canceled"> Canceled </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-5.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               I will do Amazing Website Creative Design Figma
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">Waiting for requirements</td>
-                       <td class="text-start">
-                         <span class="status-badge in-progress">
-                           In the progress
-                         </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-6.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               Brote - Cleanin Service Elementor Template Kit
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">January 28, 2024 10:23 AM</td>
-                       <td class="text-start">
-                         <span class="status-badge in-progress">
-                           In the progress
-                         </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-3.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               File Manager Cloud Storage App Mobile Design
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">-</td>
-                       <td class="text-start">
-                         <span class="status-badge canceled"> Canceled </span>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                         <div class="d-flex gap-3 align-items-center project-name">
-                           <div class="order-img">
-                             <img src="assets/img/dashboard/orders/o-4.png" alt="">
-                           </div>
-                           <div>
-                             <a href="service-details.html" class="project-link">
-                               Hiring Platform Dashboard Designe for Filtering
-                             </a>
-                             <ul class="d-flex gap-1 order-category">
-                               <li class="text-dark-200">WordPress</li>
-                               <li class="text-dark-200">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="10" viewBox="0 0 5 10" fill="none">
-                                   <path d="M1 9L4 5L1 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
-                                 </svg>
-                               </li>
-                               <li class="text-dark-200">Creative</li>
-                             </ul>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="text-dark-200">$15</td>
-                       <td class="text-dark-200">Waiting for requirements</td>
-                       <td class="text-start">
-                         <span class="status-badge pending">
-                           Pending payment
-                         </span>
-                       </td>
-                     </tr>
+                     <?php
+                    }
+                    ?>
+                    
                    </tbody>
                  </table>
                </div>

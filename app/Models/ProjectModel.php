@@ -17,4 +17,8 @@ class ProjectModel extends Model
     public function getAllProjects(){
         return $this->findAll();
     }
+
+    public function getProjectbyId($id){
+        return $this->where('id',$id)->first();
+    }
 }
