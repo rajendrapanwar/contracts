@@ -18,8 +18,8 @@ class Main extends BaseController
 
     private function checkSession()
     {
-        if (!$this->session->has('isLoggedIn') && $this->session->get('role') != 'customer') {
-            // Redirect to login page if session does not exist
+        if (session('isLoggedIn') && session('role') != 'customer') {
+            
             return false;
         }
         return true;
@@ -34,7 +34,7 @@ class Main extends BaseController
                view('customer/dashboard').
                view('includes/footer');         
     }
-
+   
     public function profile()
     {
         if (!$this->checkSession()) {

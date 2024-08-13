@@ -100,6 +100,10 @@
                         <label for="password" class="form-label">Password <span class="text-lime-300">*</span></label>
                         <input type="text" id="password" name="password" placeholder="********" class="form-control shadow-none">
                       </div>
+                      <div class="form-input col-lg-12">
+                        <label for="password" class="form-label">Profile Image <span class="text-lime-300">*</span></label>
+                        <input type="file" id="profile_image" name="profile_image"  class="form-control shadow-none">
+                      </div>
                     </div>
                     <div class="d-grid mt-4">
                       <button type="submit" class="w-btn-secondary-lg">Create Account</button>

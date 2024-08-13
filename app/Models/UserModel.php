@@ -18,6 +18,8 @@ class UserModel extends Model
         'phone',
         'email',
         'password',
+        'profile_image',
+        'role',
     ];
 
     // get user data

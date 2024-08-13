@@ -27,7 +27,7 @@
               </div>
               <div
                 class="freelancer-sidebar-card-header d-flex flex-column justify-content-center align-items-center py-4">
-                <img src="<?= $user['profile_image'] ?>" class="freelancer-avatar rounded-circle mb-4" alt="">
+                <img src="<?=base_url('assets/img/users/')?><?= $user['profile_image'] ?>" class="freelancer-avatar rounded-circle mb-4" alt="">
                 <h3 class="fw-bold freelancer-name text-dark-300 mb-2">
 
                 </h3> 
@@ -212,6 +212,20 @@
                                   class="text-lime-300">*</span></label>
                               <input type="text" id="password" placeholder="Address here"
                               name="address"  class="form-control shadow-none" value="<?= $user['address'] ?>">
+                            </div>
+                            
+                            <div class="gig-info-body bg-white">
+                              <p class="text-dark-200 mb-2">Profile Image</p>
+                              <div class="d-flex flex-wrap gap-3">
+                                <div>
+                                  <label for="gig-img" class="border text-center gig-file-upload">
+                                    <img src="<?=base_url('assets/img/users/')?><?= $user['profile_image'] ?>" alt="" width="100px">
+                                    <p class="text-dark-200">Max.Size 10MB</p>
+                                    <input class="d-none" type="file" name="profile_image" id="gig-img">
+                                  </label>
+                                </div>
+                                
+                              </div>
                             </div>
                             
                           </div>

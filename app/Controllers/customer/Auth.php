@@ -101,7 +101,8 @@ class Auth extends BaseController
             'country' => $this->request->getPost('country'),
             'phone' => $this->request->getPost('phone'),
             'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role' => 'customer'
         ];
 
 
@@ -143,7 +144,7 @@ class Auth extends BaseController
     }
     public function updateProfile()
     {
-        // print_r($_POST);die;
+        // print_r($_FILES);die;
         $id=session('user_id');
         $first_name = $this->request->getPost('first_name');
         $last_name = $this->request->getPost('last_name');
@@ -152,15 +153,32 @@ class Auth extends BaseController
         $city = $this->request->getPost('city');
         $address = $this->request->getPost('address');
 
-        $data=[
-            'first_name'=>$first_name,
-            'last_name'=>$last_name,
-            'phone'=>$phone,
-            'country'=>$country,
-            'city'=>$city,
-            'address'=>$address
-        ];
+        if($this->request->getFile('profile_image')!=''){
 
+            $file = $this->request->getFile('profile_image');
+            $newName = $file->getRandomName();
+            $uploadPath = ROOTPATH . 'assets/img/users';
+            $file->move($uploadPath, $newName);
+            $data=[
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'phone'=>$phone,
+                'country'=>$country,
+                'city'=>$city,
+                'address'=>$address,
+                'profile_image'=>$newName
+            ];
+        }else {
+
+            $data=[
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'phone'=>$phone,
+                'country'=>$country,
+                'city'=>$city,
+                'address'=>$address
+            ];
+        }
         
         $updateProfile = $this->userModel->updateProfile($id, $data);
         if ($updateProfile) {

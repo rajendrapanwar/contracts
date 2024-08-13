@@ -44,6 +44,7 @@ class Auth extends BaseController
         $session->set([
             'user_id' => $user['id'],
             'email' => $user['email'],
+            'isLoggedIn' => true,
             'username' => $user['first_name'].' '.$user['last_name'],
             'role' => $user['role'],
             // Add more user data to session as needed
@@ -89,6 +90,7 @@ class Auth extends BaseController
             'phone' => $this->request->getPost('phone'),
             'email' => $this->request->getPost('email'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role' => 'contractor'
             
         ];
 

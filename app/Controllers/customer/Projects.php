@@ -13,8 +13,19 @@ class Projects extends BaseController
         $this->projectModel=new ProjectModel();
         
     }
+    private function checkSession()
+    {
+        if ($this->session->has('isLoggedIn') && $this->session->get('role') != 'customer') {
+            // Redirect to login page if session does not exist
+            return false;
+        }
+        return true;
+    }
     public function customer_project()
     {
+        if (!$this->checkSession()) {
+            return redirect()->to('/customer_login')->send();
+        }
 
         $data['projects']= $this->projectModel->getAllProjects();
         return view('includes/header').
@@ -23,12 +34,18 @@ class Projects extends BaseController
     }
     public function add_project()
     {
+        if (!$this->checkSession()) {
+            return redirect()->to('/customer_login')->send();
+        }
         return view('includes/header').
                view('customer/projects/add_project').
                view('includes/footer');
     }
     public function edit_project($id)
     {
+        if (!$this->checkSession()) {
+            return redirect()->to('/customer_login')->send();
+        }
         $data['project']= $this->projectModel->getProjectbyId($id);
         return view('includes/header').
                view('customer/projects/edit_project',$data).
@@ -36,7 +53,9 @@ class Projects extends BaseController
     }
     public function add_project_post()
     {
-        
+        if (!$this->checkSession()) {
+            return redirect()->to('/customer_login')->send();
+        }
         $validationRules = [
             'project_title' => 'required|string|max_length[255]',
             'area_length' => 'required|integer',
@@ -84,7 +103,9 @@ class Projects extends BaseController
 
     public function edit_project_post($id)
     {
-        
+        if (!$this->checkSession()) {
+            return redirect()->to('/customer_login')->send();
+        }
         $validationRules = [
             'project_title' => 'required|string|max_length[255]',
             'area_length' => 'required|integer',
