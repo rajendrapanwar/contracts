@@ -740,9 +740,10 @@
 <script src="<?=base_url()?>assets/js/bootstrap.bundle.min.js"></script>
 <!-- Swiper -->
 <script src="<?=base_url()?>assets/js/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.0/jquery-ui.min.js" integrity="sha512-MlEyuwT6VkRXExjj8CdBKNgd+e2H+aYZOCUaCrt9KRk6MlZDOs91V1yK22rwm8aCIsb5Ec1euL8f0g58RKT/Pg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Notify -->
 <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
-<!-- Main -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script><!-- Main -->
 <script src="<?=base_url()?>assets/js/main.js"></script>
 <?php if (session('isLoggedIn') && session('role') == 'customer') { ?>
     <script src="<?=base_url()?>assets/js/customer.js"></script>
@@ -770,4 +771,19 @@
     </script>
 <?php endif; ?>
 <!-- Alert message -->
+<script>
+      $('#summernote').summernote({
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 </html>

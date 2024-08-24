@@ -36,3 +36,5 @@ $routes->get('contractor_register', 'contractor\Auth::register');
 $routes->post('contractor_login', 'contractor\Auth::login_post');
 $routes->post('contractor_register', 'contractor\Auth::register_post');
 $routes->get('contractor-dashboard', 'contractor\Main::dashboard');
+$routes->get('contractor-project', 'contractor\Projects::contractor_project');
+$routes->get('project-details/(:num)', 'contractor\Projects::project_details/$1');

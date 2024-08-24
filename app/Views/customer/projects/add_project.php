@@ -116,21 +116,14 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <label for="description" class="form-label">Notes</label>
-                      <div class="w-editor-wrapper">
-                        <div id="toolbar"></div>
-                        <div id="editor" class="ql-container ql-snow" name="notes">
-                          <div class="ql-editor ql-blank" data-gramm="false" contenteditable="true">
-                            <p><br></p>
-                          </div>
-                          <div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>
-                          <div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank"
-                              href="about:blank"></a><input type="text" data-formula="e=mc^2"
-                              data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a
-                              class="ql-remove"></a></div>
-                        </div>
+                      <div class="form-container">
+                        <label for="location" class="form-label">Project Details
+                          <span class="text-lime-300">*</span></label>
+                        <textarea id="summernote" name="notes"></textarea>
+
                       </div>
                     </div>
+                    
 
                   </div>
                 </div>

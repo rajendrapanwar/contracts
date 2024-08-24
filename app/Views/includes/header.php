@@ -27,6 +27,8 @@
     <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet" />
     <!-- Responsive CSS -->
     <link href="<?=base_url()?>assets/css/resposive.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
