@@ -5,6 +5,15 @@
       <section class="py-110">
         <div class="container">
           <div class="">
+          <?php if(session()->has('validation_errors')): ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach(session('validation_errors') as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif; ?>
             <div class="row pb-4">
               <div class="col-lg-8 mb-30 mb-lg-0">
                 <div class="job-posts-container bg-white">
@@ -18,12 +27,10 @@
                             <path d="M7.02292 0H4.35625C3.80486 0 3.35625 0.448611 3.35625 1V1.33333H0.574219L1.83142 5.10547C1.877 5.24184 2.00425 5.33333 2.14783 5.33333H4.02292V5C4.02292 4.8158 4.17205 4.66667 4.35625 4.66667H7.02292C7.20712 4.66667 7.35625 4.8158 7.35625 5V5.33333H9.23134C9.37491 5.33333 9.50217 5.24184 9.54774 5.10547L10.805 1.33333H8.02292V1C8.02292 0.448611 7.57431 0 7.02292 0ZM4.02292 1.33333V1C4.02292 0.816059 4.17231 0.666667 4.35625 0.666667H7.02292C7.20686 0.666667 7.35625 0.816059 7.35625 1V1.33333H4.02292Z" fill="#22BE0D"></path></svg>Job type: <span>Hourly</span>
                         </p>
                         <h3 class="job-post-title fw-bold mb-1">
-                            <?php
-                            print_r($project);
-                            ?>
+                        
                           <?= $project['project_title'] ?> 
                         </h3>
-                        <p class="job-company mb-2">QuomodoSoft</p>
+                        <p class="job-company mb-2"><?= $user['first_name'].' '.$user['last_name'] ?></p>
                         <div class="d-flex gap-3">
                           <span class="job-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
                               <path fill-rule="evenodd" clip-rule="evenodd" d="M3.81482 0.513554C3.81482 0.298962 3.64085 0.125 3.42626 0.125C3.21167 0.125 3.03771 0.298962 3.03771 0.513554V1.7167C2.1876 2.14527 1.51131 2.86822 1.14274 3.75163H9.85443C9.48587 2.86823 8.80959 2.14529 7.95951 1.71672V0.513554C7.95951 0.298962 7.78555 0.125 7.57095 0.125C7.35636 0.125 7.1824 0.298962 7.1824 0.513554V1.4222C6.85642 1.33638 6.51416 1.29067 6.16124 1.29067H4.83594C4.48302 1.29067 4.14078 1.33638 3.81482 1.42219V0.513554ZM0.835938 5.29067C0.835938 5.03013 0.860848 4.7754 0.908418 4.52874H10.0888C10.1363 4.7754 10.1612 5.03013 10.1612 5.29068V6.87501C10.1612 9.08415 8.37038 10.875 6.16124 10.875H4.83594C2.6268 10.875 0.835938 9.08415 0.835938 6.87501V5.29067ZM5.49857 7.76653C5.7847 7.76653 6.01664 7.53458 6.01664 7.24846C6.01664 6.96234 5.7847 6.73039 5.49857 6.73039C5.21245 6.73039 4.9805 6.96234 4.9805 7.24846C4.9805 7.53458 5.21245 7.76653 5.49857 7.76653ZM8.08868 7.24846C8.08868 7.53458 7.85673 7.76653 7.5706 7.76653C7.28448 7.76653 7.05253 7.53458 7.05253 7.24846C7.05253 6.96234 7.28448 6.73039 7.5706 6.73039C7.85673 6.73039 8.08868 6.96234 8.08868 7.24846ZM3.42623 7.76653C3.71235 7.76653 3.9443 7.53458 3.9443 7.24846C3.9443 6.96234 3.71235 6.73039 3.42623 6.73039C3.1401 6.73039 2.90815 6.96234 2.90815 7.24846C2.90815 7.53458 3.1401 7.76653 3.42623 7.76653Z" fill="#22BE0D"></path></svg>02 Days ago</span>
@@ -34,10 +41,8 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <a href="#" type="button" class="header-btn" data-bs-toggle="modal" data-bs-target="#jobDetailsModal">
-                        Apply Now
-                      </a>
                       <h3 class="job-wage fw-bold mt-4">$<?= $project['customer_budget'] ?> </h3>
+                      <span>Total Proposals: <?=$bids?></span>
                     </div>
                   </div>
                   <div class="pt-5 border-top">
@@ -46,114 +51,48 @@
                         <h4 class="fw-semibold text-18 text-dark-300 mb-2">
                           Job Description
                         </h4>
-                        <p class="text-dark-200 lh-2">
-                          Sed ut perspiciatis unde omnis iste natus error sit
-                          voluptatem accusantium doloremque laudantium, totam
-                          rem aperiam, eaque ipsa quae ab illo inventore
-                          veritatis et quasi as architecto beatae vitae dicta
-                          sunt explicabo. Nemo enim ipsam voluptatem quia
-                          voluptas sit aspernatur aut odit aut fugit, Sed quia
-                          consequuntur magni dolores as eos qui ratione
-                          voluptatem our sequi nesciunt. Neque porro quisquam
-                          est, qui dolorem ipsum quia dolor sit amet,
-                          consectetur, adipisci velit, sed quia non numquam eius
-                          modi tempora incidunt ut laboxre et dolore magnam
-                          aliquam quaerat voluptatem. Ut enim ad minima veniam,
-                          quis nostrum exercitationem ullam corporis suscipit
-                          laboriosam, nisi ut aliquid ex ea commodi consequatur?
-                          Quis autem vel eum iure reprehenderit qui in ea
-                          voluptate velit esse quam nihil molestiae consequatur,
-                          vel illum qui dolorem eum fugiat quo voluptas nulla
-                          pariatur?
-                        </p>
-                      </div>
-                      <div class="mb-30">
-                        <h4 class="fw-semibold text-18 text-dark-300 mb-2">
-                          The Work You’ll Do
-                        </h4>
-                        <ul>
-                          <li class="text-dark-200">
-                            Support the Creative Directors and Associate
-                            Creative Directors of experience design to concept
-                            andoversee the production of bold, innovative,
-                            award-winning campaigns and digital experiences.
-                          </li>
-                          <li class="text-dark-200">
-                            Make strategic and tactical UX decisions related to
-                            design and usability as well as features
-                            andfunctions.
-                          </li>
-                          <li class="text-dark-200">
-                            Creates low- and high-fidelity wireframes that
-                            represent a user’s journey.
-                          </li>
-                          <li class="text-dark-200">
-                            Effectively pitch wireframes to and solutions to
-                            stakeholders. You’ll be the greatest advocate forour
-                            work, but you’ll also listen and internalize
-                            feedback that we can come back with creative
-                            thatexceeds expectations.
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="mb-30">
-                        <h4 class="fw-semibold text-18 text-dark-300 mb-2">
-                          Qualifications
-                        </h4>
-                        <ul>
-                          <li class="text-dark-200">
-                            At least 5-8 years of experience with UX and UI
-                            design.
-                          </li>
-                          <li class="text-dark-200">
-                            2 years of experience with design thinking or
-                            similar framework that focuses on defining
-                            users’needs early.
-                          </li>
-                          <li class="text-dark-200">
-                            Strong portfolio showing expert concept, layout, and
-                            typographic skills, as well as creativity andability
-                            to adhere to brand standards.
-                          </li>
-                          <li class="text-dark-200">
-                            Expertise in Figma, Adobe Creative Cloud suite,
-                            Microsoft suite.
-                          </li>
-                          <li class="text-dark-200">
-                            Forever learning: Relentless desire to learn and
-                            leverage the latest web technologies.
-                          </li>
-                          <li class="text-dark-200">
-                            Independence: The ability to make things happen with
-                            limited direction. Excellent proactiveattitude,
-                            take-charge personality, and “can-do” demeanor.
-                            Proficiency with Front-End UI technologies a bonus
-                            but not necessary (such as HTML, CSS,JavaScript).
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="mb-30">
-                        <p class="text-dark-200">
-                          At vero eos et accusamus et iusto odio dignissimos
-                          ducimus qui blanditiis praesentium voluptatum deleniti
-                          atque corrupti quos dolores et quas molestias
-                          excepturi sint as occaecati cupiditate non provident,
-                          similique sunt in culpa qui officia deserunt mollitia
-                          animi, id est laborum et dolorum fuga. Et harum quidem
-                          rerum facilis est et expedita distinctio. Nam our
-                          libero tempore, cum soluta nobis est eligendi optio
-                          cumque nihil impedit quo minus id quod maxime placeat
-                          facere possimus, omnis voluptas assumenda est, omnis
-                          dolor here as repellendus. Temporibus autem quibusdam
-                          et aut officiis debitis aut rerum necessitatibus saepe
-                          eveniet ut et voluptates repudiandae sint et molestiae
-                          non recusandae. Itaque earum rerum hic tenetur a
-                          sapiente delectus, ut aut reiciendis voluptatibus
-                          maiores alias consequatur aut perferendis doloribus
-                          asperiores repellat.
-                        </p>
+                        <?=$project['notes'] ?>
                       </div>
                     </div>
+                  </div>
+                  <div class="pt-5">
+                  <div class="proposal-container">
+                    <div class="proposal-header">
+                      <h3 class="text-dark-300 text-24 fw-bold">Submit Proposal</h3>
+                    </div>
+                    <form action="<?=base_url('add-project-bid')?>" method="post" enctype="multipart/form-data">
+                      <div class="d-flex flex-column gap-4">
+                        <!-- Todo Need to add select -->
+                        <div class="proposal-input-container">
+                          <label for="amount" class="proposal-form-label">Proposal amount*</label>
+                          <input type="text" name="bid_amount" id="bid_amount" class="form-control shadow-none" placeholder="50">
+                        </div>
+                        <div class="proposal-input-container">
+                          <label for="time" class="proposal-form-label">Delivery Time*</label>
+                          <input type="text" name="delivery_time" id="delivery_time" class="form-control shadow-none" placeholder="Enter Duration">
+                        </div>
+                        <div class="proposal-input-container">
+                          <label for="time" class="proposal-form-label">Write Cover Letter*</label>
+                          <textarea placeholder="Write Cover Letter minimum 150 characters..." name="cover_letter" id="cover_letter" class="form-textarea shadow-none"></textarea>
+                        </div>
+                        <div class="proposal-input-container">
+                          <div class="file-input">
+                            <input type="file" name="file-input" id="file-input" class="file-input__input">
+                            <label class="file-input__label" for="file-input">
+                              <span class="text-dark-200 text-18">
+                                <b class="text-lime-300 fw-semibold">Choose File</b>
+                                to upload</span></label>
+                          </div>
+                        </div>
+                        <div class="d-flex gap-4 align-items-center justify-content-end">
+                          <input type="hidden" name="project_id" id="project_id" value="<?= $project['id'] ?> ">
+                          <button class="w-btn-secondary-sm" type="submit" id="proposal_submit">
+                            Submit Proposal
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -161,13 +100,13 @@
                 <div class="bg-white company-profile-card">
                   <div class="d-flex gap-3 align-items-center company-profile-card-header">
                     <div class="company-profile-card-icon">
-                      <img src="assets/img/job/1-sm.png" alt="">
+                      <img src="<?=base_url()?>assets/img/users/<?=$user['profile_image']?>" alt="profile_image" height="80px">
                     </div>
                     <div>
                       <h4 class="company-profile-card-title fw-bold">
-                        QuomodoSoft
+                      <?= $user['first_name'].' '.$user['last_name'] ?>
                       </h4>
-                      <p class="company-profile-card-desc">Dhaka, Bangladesh</p>
+                      <p class="company-profile-card-desc"><?= $user['address'].' '.$user['city'].' '.$user['country']?></p>
                     </div>
                   </div>
                   <ul class="company-card-list">
@@ -183,7 +122,7 @@
                         </svg>
                         Member Since
                       </div>
-                      <span class="text-dark-200 fs-6">Software</span>
+                      <span class="text-dark-200 fs-6"><?=(new DateTime($user['created_at']))->format('F j Y')?></span>
                     </li>
                     <li class="py-3 d-flex justify-content-between gap-3 text-dark-200 company-card-list align-items-center">
                       <div class="align-items-center d-flex gap-3">
@@ -243,10 +182,6 @@
                     <div class="proposal-input-container">
                       <label for="amount" class="proposal-form-label">Proposal amount*</label>
                       <input type="text" class="form-control shadow-none" placeholder="50">
-                    </div>
-                    <div class="proposal-input-container">
-                      <label for="revision" class="proposal-form-label">Revisions*</label>
-                      <input type="text" placeholder="Revisions" id="revision" class="form-control shadow-none">
                     </div>
                     <div class="proposal-input-container">
                       <label for="time" class="proposal-form-label">Delivery Time*</label>

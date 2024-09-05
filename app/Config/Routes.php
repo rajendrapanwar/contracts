@@ -13,13 +13,13 @@ $routes->get('forgot-password', 'Auth::forgotPassword');
 $routes->post('forgot-password-post', 'Auth::forgotPasswordPost');
 $routes->post('subscribe', 'Home::subscribe');
 $routes->get('search-projects', 'Home::searchProjects');
+$routes->post('update-profile', 'Auth::updateProfile');
+$routes->post('update-password', 'Auth::changePassword');
 
 //Customer Routes
 $routes->get('customer_login', 'customer\Auth::login');
 $routes->get('customer_register', 'customer\Auth::register');
 $routes->post('customer_login', 'customer\Auth::login_post');
-$routes->post('update-profile', 'customer\Auth::updateProfile');
-$routes->post('update-password', 'customer\Auth::changePassword');
 $routes->post('customer_register', 'customer\Auth::register_post');
 $routes->get('customer-dashboard', 'customer\Main::dashboard');
 $routes->get('customer-profile', 'customer\Main::profile');
@@ -36,5 +36,7 @@ $routes->get('contractor_register', 'contractor\Auth::register');
 $routes->post('contractor_login', 'contractor\Auth::login_post');
 $routes->post('contractor_register', 'contractor\Auth::register_post');
 $routes->get('contractor-dashboard', 'contractor\Main::dashboard');
+$routes->get('contractor-profile', 'contractor\Main::profile');
 $routes->get('contractor-project', 'contractor\Projects::contractor_project');
 $routes->get('project-details/(:num)', 'contractor\Projects::project_details/$1');
+$routes->post('add-project-bid', 'contractor\Projects::add_project_bid');

@@ -785,5 +785,9 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
+      $('#add_project').on('submit', function() {
+    // Ensure that the content of Summernote is updated in the textarea
+    $('#summernote').val($('#summernote').summernote('code'));
+});
     </script>
 </html>

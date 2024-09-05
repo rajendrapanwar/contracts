@@ -24,7 +24,7 @@
     <div>
       <div class="row justify-content-center">
         <div class="col-xl-12">
-          <form name="add_project" method="post" action="<?=base_url("add-project")?>" enctype="multipart/form-data">
+          <form name="add_project" id="add_project" method="post" action="<?=base_url("add-project")?>" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <div class="d-flex flex-column gap-4">
               <!-- Project Info -->
@@ -45,6 +45,14 @@
                           placeholder="Title name here">
                       </div>
                     </div>
+                    <div class="col-12">
+                      <div class="form-container">
+                        <label for="location" class="form-label">Project Details
+                          <span class="text-lime-300">*</span></label>
+                        <textarea id="summernote" name="notes"></textarea>
+                      </div>
+                    </div>
+
                     <div class="col-6">
                       <div class="form-container">
                         <label for="author" class="form-label">Area Length
@@ -115,15 +123,6 @@
                           placeholder="Location here">
                       </div>
                     </div>
-                    <div class="col-12">
-                      <div class="form-container">
-                        <label for="location" class="form-label">Project Details
-                          <span class="text-lime-300">*</span></label>
-                        <textarea id="summernote" name="notes"></textarea>
-
-                      </div>
-                    </div>
-                    
 
                   </div>
                 </div>

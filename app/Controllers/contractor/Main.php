@@ -37,4 +37,32 @@ class Main extends BaseController
                
               
     }
+    public function profile()
+    {
+        if (!$this->checkSession()) {
+            return redirect()->to('/contractor_login')->send();
+        }
+
+     
+        $id=session('user_id');
+        $data['user']=$this->userModel->getUserDetailsById($id);
+        $data['countries']=$this->countryModel->getAllCountries();
+        // echo "<pre>";
+        // print_r($_SESSION);
+
+        // die;
+        return view('includes/header').
+               view('contractor/profile/index',$data).
+               view('includes/footer');  
+    }
+
+    public function chat()
+    {
+        if (!$this->checkSession()) {
+            return redirect()->to('/contractor_login')->send();
+        }
+        return view('includes/header').
+               view('contractor/chat').
+               view('includes/footer');  
+    }
 }

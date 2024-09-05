@@ -47,5 +47,80 @@ class Auth extends BaseController
             die("ASdf");
        }
     }
+    // channge password
+    public function changePassword()
+    {
+        $current_password = $this->request->getPost('current_password');
+        $new_password = $this->request->getPost('new_password');
+        $confirm_password = $this->request->getPost('confirm_password');
+
+        $id = session('user_id');
+        $role=session('role');
+        $data['user'] = $this->userModel->getUserDetailsById($id);
+        $checkPassword = password_verify($current_password, $data['user']['password']);
+        if (!$checkPassword) {
+            return redirect()->to('customer-profile')->with('error_message', 'Current Password Is Incorrect');
+        } else {
+            $data=[
+                'password'=>password_hash($new_password,PASSWORD_BCRYPT)
+            ];
+    
+
+            $updateProfile = $this->userModel->updateProfile($id, $data);
+            if ($updateProfile) {
+                return redirect()->to($role.'-profile')->with('success_message', 'Password Changed Successfully');
+            } else {
+                return redirect()->to($role.'-profile')->with('error_message', 'Something went wrong! Please try after sometime');
+            }
+        }
+    }
+    public function updateProfile()
+    {
+        // print_r($_FILES);die;
+        $id=session('user_id');
+        $role=session('role');
+        $first_name = $this->request->getPost('first_name');
+        $last_name = $this->request->getPost('last_name');
+        $phone = $this->request->getPost('phone');
+        $country = $this->request->getPost('country');
+        $city = $this->request->getPost('city');
+        $address = $this->request->getPost('address');
+
+        if($this->request->getFile('profile_image')!=''){
+
+            $file = $this->request->getFile('profile_image');
+            $newName = $file->getRandomName();
+            $uploadPath = ROOTPATH . 'assets/img/users';
+            $file->move($uploadPath, $newName);
+            $data=[
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'phone'=>$phone,
+                'country'=>$country,
+                'city'=>$city,
+                'address'=>$address,
+                'profile_image'=>$newName
+            ];
+        }else {
+
+            $data=[
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'phone'=>$phone,
+                'country'=>$country,
+                'city'=>$city,
+                'address'=>$address
+            ];
+        }
+        
+        $updateProfile = $this->userModel->updateProfile($id, $data);
+        if ($updateProfile) {
+            return redirect()->to($role.'-profile')->with('success_message', 'Profile Updated Successfully');
+        } else {
+            return redirect()->to($role.'-profile')->with('error_message', 'Something went wrong! Please try after sometime');
+        }
+
+        
+    }
 
 }

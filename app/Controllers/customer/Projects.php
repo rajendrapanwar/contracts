@@ -78,8 +78,9 @@ class Projects extends BaseController
         $newName = $file->getRandomName();
         $uploadPath = ROOTPATH . 'assets/img/projects';
         $file->move($uploadPath, $newName);
-
+        $user_id=$this->session->get('user_id');
         $data = [
+            'user_id' => $user_id,
             'project_title' => $this->request->getPost('project_title'),
             'area_length' => $this->request->getPost('area_length'),
             'area_breadth' => $this->request->getPost('area_breadth'),
