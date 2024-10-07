@@ -88,7 +88,7 @@ class Projects extends BaseController
             'files' => $newName,
         ];
        
-        if($ProjectBidsModel->save($data)){
+        if($this->ProjectBidsModel->save($data)){
             return redirect()->to('/project-details/'.$project_id)->with('success_message', 'Proposal added successfully!');
         }else {
             return redirect()->to('/project-details/'.$project_id)->with('error_message', 'Failed to add Proposal.');

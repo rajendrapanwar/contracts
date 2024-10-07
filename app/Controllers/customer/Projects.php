@@ -26,8 +26,8 @@ class Projects extends BaseController
         if (!$this->checkSession()) {
             return redirect()->to('/customer_login')->send();
         }
-
-        $data['projects']= $this->projectModel->getAllProjects();
+        $user_id=session()->get('user_id');
+        $data['projects']= $this->projectModel->getProjectbyUserId($user_id);
         return view('includes/header').
                view('customer/projects/index',$data).
                view('includes/footer');
@@ -78,7 +78,7 @@ class Projects extends BaseController
         $newName = $file->getRandomName();
         $uploadPath = ROOTPATH . 'assets/img/projects';
         $file->move($uploadPath, $newName);
-        $user_id=$this->session->get('user_id');
+        $user_id=session()->get('user_id');
         $data = [
             'user_id' => $user_id,
             'project_title' => $this->request->getPost('project_title'),

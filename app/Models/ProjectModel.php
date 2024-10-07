@@ -8,7 +8,7 @@ class ProjectModel extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
-        'project_title', 'area_length','area_breadth', 'floors', 'material',
+        'user_id','project_title', 'area_length','area_breadth', 'floors', 'material',
         'estimated_budget', 'customer_budget', 'time_duration', 'location','notes', 'images'
     ];
 
@@ -20,5 +20,8 @@ class ProjectModel extends Model
 
     public function getProjectbyId($id){
         return $this->where('id',$id)->first();
+    }
+    public function getProjectbyUserId($id){
+        return $this->where('user_id',$id)->findAll();
     }
 }
